@@ -2,27 +2,36 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import logoBlue from './logo-blue.svg';
 import './App.css';
+import { Link, IndexLink } from 'react-router';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.ACTIVE = { color: 'white' }
+  }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <a href="/">
+
+          <IndexLink to="/">
             <img src={logo} className="App-logo" alt="logo" />
-          </a>
+          </IndexLink>
 
           <nav className="App-mainnav">
-            <a className="App-mainnav-anchor" href="/">Why An Elected Board?</a>
-            <a className="App-mainnav-anchor" href="/">Join the Campaign</a>
-            <a className="App-mainnav-anchor" href="/">The Legislation</a>
-            <a className="App-mainnav-anchor" href="/">FAQ</a>
-            <a className="App-mainnav-anchor" href="/">Contact</a>
-            <a className="App-mainnav-anchor button green-on-orange" href="/">Donate Now!</a>
+            <IndexLink className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/">Why An Elected Board?</IndexLink>
+            <Link className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
+            <Link className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
+            <Link className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
+            <Link className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
+            <a className="App-mainnav-anchor button green-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
           </nav>
+
         </header>
 
         <div className="App-content">
+          {this.props.children}
         </div>
 
         <footer className="App-footer">
