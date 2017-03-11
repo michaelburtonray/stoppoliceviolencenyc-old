@@ -2,7 +2,6 @@ import contentful from 'contentful';
 
 class ContentfulClient {
   constructor() {
-    console.log('hi');
 
     const space = 'yvri0pfu4lqm';
     const accessToken = '0ed39718c63b563aec3f41f3c071a941f1093b80da198fae5de9d4db0e4b9177';
@@ -24,6 +23,12 @@ class ContentfulClient {
 
   getHomepageSlides() {
     const content_type = 'homepageSlideshow';
+
+    return this.client.getEntries({content_type});
+  }
+
+  getFaq() {
+    const content_type = 'frequentlyAskedQuestions';
 
     return this.client.getEntries({content_type});
   }

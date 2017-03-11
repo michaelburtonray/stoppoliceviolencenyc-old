@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import ContentfulClient from './ContentfulClient';
 
 class Home extends Component {
   constructor() {
@@ -15,13 +14,9 @@ class Home extends Component {
       slidesToScroll: 1
     }
 
-
-
   }
-  render() {
 
-    console.log('CONTENTFUL_SPACE')
-    console.log(process.env.CONTENTFUL_SPACE)
+  render() {
     return (
       <div className="hero-slideshow">
         <p>This is the hero slideshow</p>
