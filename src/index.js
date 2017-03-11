@@ -11,11 +11,10 @@ import Legislation from './Legislation';
 import Faq from './Faq';
 import Contact from './Contact';
 
-
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Home} />
+      <IndexRoute mike="ray" component={Home} />
       <Route path="/join" component={Join} />
       <Route path="/legislation" component={Legislation} />
       <Route path="/faq" component={Faq} />
