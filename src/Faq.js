@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ContentfulClient from './ContentfulClient';
+import './faq.css';
+import { markdown } from 'markdown';
 
 class Faq extends Component {
   constructor() {
@@ -19,7 +21,7 @@ class Faq extends Component {
 
         const questions = response.items[0].fields.questions.map(qa => {
           const question = qa.fields.question;
-          const answer = qa.fields.answer;
+          const answer = markdown.toHTML( qa.fields.answer );
           return { question, answer }
         })
 
@@ -31,8 +33,8 @@ class Faq extends Component {
     return (
       <div className="faq-page">
         <h1>{this.state.title}</h1>
-        <ul>{this.state.questions.map(this.questionLinks)}</ul>
-        <dl>{this.state.questions.map(this.questionAnswers)}</dl>
+        <ul className="faq-page__contents">{this.state.questions.map(this.questionLinks)}</ul>
+        <dl className="faq-page__question-answers">{this.state.questions.map(this.questionAnswers)}</dl>
       </div>
     )
   }
@@ -49,7 +51,7 @@ class Faq extends Component {
     return (
       <div key={idx}>
         <dt id={ questionAnswer.question.replace(/\s+/g, '-').toLowerCase() }>{ questionAnswer.question }</dt>
-        <dd>{ questionAnswer.answer }</dd>
+        <dd dangerouslySetInnerHTML={{ __html: questionAnswer.answer }} />
       </div>
     )
   }

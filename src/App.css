@@ -45,10 +45,15 @@
   color: white;
 }
 
-
-.App-content {
+.App-wrapper {
   background: #FFF2E5;
   flex-grow: 1;
+  padding: 0 40px;
+}
+
+.App-content {
+  margin: auto;
+  max-width: 984px;
 }
 
 .App-footer-social {
@@ -107,5 +112,12 @@ input[type=email] {
 }
 
 input::placeholder {
+  text-transform: uppercase;
+}
+
+h1 {
+  color: #01343D;
+  font-family: Montserrat;
+  line-height: normal;
   text-transform: uppercase;
 }

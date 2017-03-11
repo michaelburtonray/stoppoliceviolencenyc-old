@@ -30,8 +30,10 @@ class App extends Component {
 
         </header>
 
-        <div className="App-content">
-          {this.props.children}
+        <div className="App-wrapper">
+          <div className="App-content">
+            {this.props.children}
+          </div>
         </div>
 
         <footer className="App-footer">
