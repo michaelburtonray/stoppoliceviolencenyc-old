@@ -49,11 +49,20 @@ class App extends Component {
             </a>
 
             <form className="subscribe-form">
-              Sign up for campaign updates.
-              <br/>
+              <div className="subscribe-form__top">Sign up for campaign updates.</div>
+
               <input name="email" placeholder="Email Address" type="email" />
-              <br/>
-              <input className="button yellow-on-orange" type="submit" />
+
+              <div className="subscribe-form__bottom">
+                <input id="want-to-volunteer" name="want-to-volunteer" type="checkbox" />
+                <label htmlFor="want-to-volunteer">
+                  I want to
+                  <br/>
+                  volunteer!
+                </label>
+                <input className="button yellow-on-orange" type="submit" />              
+              </div>
+
             </form>
 
             <div className="column">
