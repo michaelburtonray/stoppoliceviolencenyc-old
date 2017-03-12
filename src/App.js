@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { Link, IndexLink } from 'react-router';
+
 import logo from './logo.svg';
 import logoBlue from './logo-blue.svg';
+
+import './button.css';
+import './elements.css';
 import './App.css';
-import { Link, IndexLink } from 'react-router';
 
 class App extends Component {
   constructor() {
@@ -13,60 +17,64 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="header">
+          <div className="content header__content">
+            <IndexLink to="/">
+              <img src={logo} className="logo" alt="logo" />
+            </IndexLink>
 
-          <IndexLink to="/">
-            <img src={logo} className="App-logo" alt="logo" />
-          </IndexLink>
-
-          <nav className="App-mainnav">
-            <IndexLink className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/">Why An Elected Board?</IndexLink>
-            <Link className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
-            <Link className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
-            <Link className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
-            <Link className="App-mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
-            <a className="App-mainnav-anchor button green-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
-          </nav>
-
+            <nav className="mainnav">
+              <IndexLink className="mainnav-anchor" activeStyle={this.ACTIVE} to="/">Why An Elected Board?</IndexLink>
+              <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
+              <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
+              <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
+              <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
+              <a className="mainnav-anchor button green-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
+            </nav>
+          </div>
         </header>
 
-        <div className="App-wrapper">
-          <div className="App-content">
+        <div className="wrapper">
+          <div className="content">
             {this.props.children}
           </div>
         </div>
 
-        <footer className="App-footer">
-          <nav className="App-footer-social">
-            <a className="App-footer-social-anchor" href="//facebook.com/"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-            <a className="App-footer-social-anchor" href="//twitter.com/"><i className="fa fa-twitter" aria-hidden="true"></i></a>
-            <a className="App-footer-social-anchor" href="//twitter.com/"><i className="fa fa-instagram" aria-hidden="true"></i></a>
-          </nav>
+        <footer className="footer">
+          <div className="footer-social">
+            <nav className="content footer-social__content">
+              <a className="footer-social-anchor" href="//facebook.com/"><i className="fa fa-facebook" aria-hidden="true"></i></a>
+              <a className="footer-social-anchor" href="//twitter.com/"><i className="fa fa-twitter" aria-hidden="true"></i></a>
+              <a className="footer-social-anchor" href="//twitter.com/"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+            </nav>
+          </div>
 
-          <div className="App-footer-bottom">
-            <a  href="/">
-              <img src={logoBlue} className="App-logo" alt="logo" />            
-            </a>
+          <div className="footer-bottom">
+            <div className="content footer-bottom__content">
+              <a  href="/">
+                <img src={logoBlue} className="logo" alt="logo" />            
+              </a>
 
-            <form className="subscribe-form">
-              <div className="subscribe-form__top">Sign up for campaign updates.</div>
+              <form className="subscribe-form">
+                <div className="subscribe-form__top">Sign up for campaign updates.</div>
 
-              <input name="email" placeholder="Email Address" type="email" />
+                <input name="email" placeholder="Email Address" type="email" />
 
-              <div className="subscribe-form__bottom">
-                <input id="want-to-volunteer" name="want-to-volunteer" type="checkbox" />
-                <label htmlFor="want-to-volunteer">
-                  I want to
-                  <br/>
-                  volunteer!
-                </label>
-                <input className="button yellow-on-orange" type="submit" />              
+                <div className="subscribe-form__bottom">
+                  <input id="want-to-volunteer" name="want-to-volunteer" type="checkbox" />
+                  <label htmlFor="want-to-volunteer">
+                    I want to
+                    <br/>
+                    volunteer!
+                  </label>
+                  <input className="button yellow-on-orange" type="submit" />              
+                </div>
+
+              </form>
+
+              <div className="column">
+                <a className="button yellow-on-blue" href="//google.com" target="_blank">Donate Now!</a>
               </div>
-
-            </form>
-
-            <div className="column">
-              <a className="button yellow-on-blue" href="//google.com" target="_blank">Donate Now!</a>
             </div>
           </div>
         </footer>

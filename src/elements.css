@@ -1,0 +1,33 @@
+label {
+  color: #F7EBE3;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0 1em;
+  text-transform: none;
+}
+
+label[for] {
+  cursor: pointer;
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  background-color: #F7EBE3;
+  height: 14.667px;
+  width: 14.667px;
+}
+
+input[type=checkbox]:checked {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M 3 3 L 13 13' fill='transparent' stroke='#01343D' stroke-width='2' /><path d='M 3 13 L 13 3' fill='transparent' stroke='#01343D' stroke-width='2' /></svg>");
+}
+
+input[type=email] {
+  background: #FFF2E5;
+  border-color: transparent;
+  box-sizing: border-box;
+  font: normal 15px/normal 'Montserrat', sans-serif;
+  margin: 0.50em 0;
+  padding: 3px 9px;
+  width: 100%;
+}

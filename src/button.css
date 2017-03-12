@@ -1,15 +1,17 @@
 .button {
     border-style: solid; 
     border-width: 1px;
+    box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    font: 13px/1 'Montserrat', sans-serif;
+    font: normal 13px/1 'Montserrat', sans-serif;
     line-height: normal;
     min-width: 10.539em;
-    padding: 0.50em 1em;
+    padding: 0.50em 1.25em;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .button.yellow-on-blue {
@@ -17,6 +19,7 @@
     border-color: #F8ECE4;
     color: #F8ECE4;
 }
+
 .button.yellow-on-blue:hover {
     border-color: white;
     color: white;
@@ -27,6 +30,7 @@
     border-color: #BDFFD9;
     color: #BDFFD9;
 }
+
 .button.green-on-orange:hover {
     border-color: white;
     color: white;
@@ -37,7 +41,15 @@
     border-color: #F8ECE4;
     color: #F8ECE4;
 }
+
 .button.yellow-on-orange:hover {
     border-color: white;
     color: white;
+}
+
+.button.mainnav-anchor {
+  font-weight: bold;
+  margin-left: 2em;
+  min-width: initial;
+  padding: 0.5em 1.25em;
 }
