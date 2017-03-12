@@ -3,7 +3,7 @@
 }
 
 .faq-page__contents {
-  font: italic 600 18px/1 'Crimson Text';
+  font: italic normal 18px/1 'Crimson Text';
   list-style: none;
   margin: 1em 0;
   padding-left: 0;
