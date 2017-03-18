@@ -13,7 +13,7 @@ import Contact from './Contact';
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute mike="ray" component={Home} />
+      <IndexRoute component={Home} />
       <Route path="/join" component={Join} />
       <Route path="/legislation" component={Legislation} />
       <Route path="/faq" component={Faq} />

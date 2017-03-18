@@ -11,47 +11,59 @@ class Home extends Component {
     super();
 
     this.state = {
+      title: '',
+      sliderSlides: [],
       homePageDiagramIntro: '',
       homePageDiagramSrc: ''
     }
 
     this.slickSettings = {
-      dots: true,
+      arrows: false,
+      dots: false,
+      fade: true,
       infinite: true,
-      speed: 500,
+      speed: 800,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      adaptiveHeight: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
     }
 
     const contentfulClient = new ContentfulClient();
 
+    contentfulClient.getHomepageSlides()
+    .then(response => {
+      const data = response.items[0];
+      const title = data.fields.title;
+      const sliderSlides = data.fields.slides;
+      this.setState({ title, sliderSlides })
+    });
+
     contentfulClient.getHomePageDiagram()
     .then(response => {
       const data = response.items[0];
-
-
       const homePageDiagramIntro = markdown.toHTML( data.fields.intro );
-
       const homePageDiagramSrc = !!data.fields.diagram ? data.fields.diagram.fields.file.url : 'http://placehold.it/1100x850';
-
-      console.log(homePageDiagramSrc);
 
       this.setState({ homePageDiagramIntro, homePageDiagramSrc });
     });    
   }
 
+  getSlide(slide) {
+    console.log(slide);
+    return (
+      <div key={slide.sys.id}><img src={slide.fields.file.url} alt={slide.fields.title} /></div>
+    )
+  }
+
   render() {
     return (
       <div className="home-page">
-        <p>{ this.props.route.mike }</p>
 
         <Slider {...this.slickSettings}>
+          { this.state.sliderSlides.map(this.getSlide)}
           <div><img src="http://placehold.it/1200x385?text=slide1" alt="test" /></div>
-          <div><img src="http://placehold.it/1200x385?text=slide2" alt="test" /></div>
-          <div><img src="http://placehold.it/1200x385?text=slide3" alt="test" /></div>
-          <div><img src="http://placehold.it/1200x385?text=slide4" alt="test" /></div>
-          <div><img src="http://placehold.it/1200x385?text=slide5" alt="test" /></div>
-          <div><img src="http://placehold.it/1200x385?text=slide6" alt="test" /></div>
         </Slider>
 
         <div className="home-page__intro">
