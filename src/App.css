@@ -8,6 +8,12 @@
 .wrapper {
   background: #FFF2E5;
   flex-grow: 1;
+  transition: transform 400ms;
+}
+@media (max-width: 1023px) {
+  .mainnav--active .wrapper {
+    transform: translateY(calc(100vh - 80px));
+  }
 }
 
 .content {
@@ -18,8 +24,14 @@
 }
 
 .logo {
-  height: 74px;
+  display: inline-block;
   transform: translateY(-15%);
+}
+.logo img {
+  height: 40px;
+}
+@media (min-width: 1024px) {
+  height: 74px;
 }
 
 
@@ -29,21 +41,65 @@
   color: white;
   font: 13px/1 'Montserrat', sans-serif;
   text-transform: uppercase;
+  z-index: 11;
 }
 
 .header__content {
   align-items: center;
   display: flex;
-  height: 158px;
+  height: 76px;
   justify-content: space-between;
   padding: 0 32px;
 }
 
-.mainnav {
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
+@media (min-width: 1024px) {
+  height: 158px;  
 }
+
+.header__bars {
+  font-size: 18px;
+}
+
+@media (max-width: 1023px) {
+  .mainnav {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  .mainnav--mobile {
+    align-items: center;
+    background: #052531;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+    justify-content: center;
+    left: 0;
+    /*opacity: 0;*/
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    transform: translateY(calc(-100vh + 80px));
+    transition-duration: 400ms;
+    transition-property: opacity, transform;
+    z-index: 10;
+  }
+
+  .mainnav--active .mainnav--mobile {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainnav {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 .mainnav-anchor {
   color: #BDFFD9;
   display: inline-block;
@@ -53,9 +109,17 @@
   transition: color 800ms;
 }
 
+@media (min-width: 1024px) {
+  .mainnav-anchor {
+    margin-left: 2em;
+  }
+}
+
 .mainnav-anchor:hover {
   color: white;
 }
+
+
 
 .footer-social {
   background: #013C49;
@@ -85,21 +149,41 @@
 }
 
 .footer-bottom__content {
-  display: flex;
-  flex-direction: row;
-  /*justify-content: space-between;*/
-  padding: 36px 96px;
+  padding: 3em 1em;
 }
+
+@media (min-widt: 1024px) {
+  .footer-bottom__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 36px 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-bottom__content {
+    flex-direction: row;
+  }
+}
+
 
 .footer-bottom .yellow-on-blue {
   margin-top: 2em;
 }
 
 .subscribe-form {
-  flex-basis: 292px;
-  font: 15px/1.733 Montserrat;
-  padding: 0 96px;
+  font: normal 15px/1.733 Montserrat;
+  margin: 3em 0;
   text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .subscribe-form {
+    flex-basis: 292px;  
+
+    padding: 0 96px;
+  }
 }
 
 .subscribe-form__bottom {
