@@ -1,0 +1,42 @@
+.home-page {
+
+}
+.home-page__intro {
+  margin: auto;
+  max-width: 592px;
+  text-align: center;
+}
+.home-page__intro span {
+  display: block;
+  font: italic 400 40px/normal 'Crimson Text';
+  margin: 1em 0 0.5em;
+}
+.home-page__intro h1 {
+  font-size: 56px;
+  margin-top: 0;
+}
+.home-page__intro p {
+  border-left: 2px solid #01343D;
+  border-right: 2px solid #01343D;
+  font: 400 italic 25px/normal 'Crimson Text';
+  padding: 0 1em;
+}
+
+.home-page__content {}
+
+.home-page__diagram-intro {
+  text-align: center;
+}
+.home-page__diagram-intro p {
+  font: 400 italic 36px/1 'Crimson Text';
+  margin-bottom: 0;
+}
+.home-page__diagram-intro h2 {
+  margin-top: 0;
+}
+
+.home-page__diagram-image {
+  display: block;
+  margin: 1em 0;
+  width: 100%;
+}

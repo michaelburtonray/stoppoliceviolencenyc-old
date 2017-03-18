@@ -75,9 +75,8 @@ class App extends Component {
         <footer className="footer">
           <div className="footer-social">
             <nav className="content footer-social__content">
-              <a className="footer-social-anchor" href="//facebook.com/"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-              <a className="footer-social-anchor" href="//twitter.com/"><i className="fa fa-twitter" aria-hidden="true"></i></a>
-              <a className="footer-social-anchor" href="//twitter.com/"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+              <a className="footer-social-anchor" href="//facebook.com/stoppoliceviolencenyc" target="_blank"><i className="fa fa-facebook" aria-hidden="true"></i></a>
+              <a className="footer-social-anchor" href="//instagram.com/nyc_ecrb" target="_blank"><i className="fa fa-instagram" aria-hidden="true"></i></a>
             </nav>
           </div>
 

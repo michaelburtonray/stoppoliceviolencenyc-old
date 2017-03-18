@@ -202,6 +202,9 @@
   justify-content: flex-end;
 }
 
+.subscribe-form label {
+  margin: 3px 0.5ex;
+}
 
 .subscribe-form .button {
   border-color: #FFF2E5;
