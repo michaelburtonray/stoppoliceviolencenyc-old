@@ -40,7 +40,7 @@
   background-color: #01343D;
   border-bottom: 4px solid #FD5F55;
   color: white;
-  font: 13px/1 'Montserrat', sans-serif;
+  font: 700 13px/1 'Montserrat', sans-serif;
   text-transform: uppercase;
   z-index: 11;
 }
@@ -209,12 +209,5 @@
 }
 
 input::placeholder {
-  text-transform: uppercase;
-}
-
-h1 {
-  color: #01343D;
-  font-family: Montserrat;
-  line-height: normal;
   text-transform: uppercase;
 }

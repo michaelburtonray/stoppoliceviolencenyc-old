@@ -32,6 +32,12 @@ class ContentfulClient {
 
     return this.client.getEntries({content_type});
   }
+
+  getLegislationPage() {
+    const content_type = 'legislationPage';
+
+    return this.client.getEntries({content_type});
+  }
 }
 
 export default ContentfulClient;

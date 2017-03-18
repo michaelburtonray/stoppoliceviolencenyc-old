@@ -6,3 +6,20 @@ body {
   margin: 0;
   padding: 0;
 }
+
+h1 {
+  color: #01343D;
+  text-transform: uppercase;
+  font: 700 48px/normal Montserrat,  sans-serif;
+}
+
+h2 {
+  color: #01343D;
+  text-transform: uppercase;
+  font: 700 36px/normal Montserrat,  sans-serif;
+}
+
+h3 {
+  color: #FC5F55;
+  font: italic 400 24px/normal 'Crimson Text', serif;
+}
