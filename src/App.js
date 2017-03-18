@@ -51,7 +51,7 @@ class App extends Component {
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
-              <a className="mainnav-anchor button green-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
+              <a className="mainnav-anchor button yellow-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
             </nav>
 
           </div>
@@ -63,7 +63,7 @@ class App extends Component {
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
-          <a className="mainnav-anchor button green-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
+          <a className="mainnav-anchor button yellow-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
         </nav>
 
         <div className="wrapper">

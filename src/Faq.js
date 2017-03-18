@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ContentfulClient from './ContentfulClient';
-import './faq.css';
 import { markdown } from 'markdown';
+import './faq.css';
 
 class Faq extends Component {
   constructor() {

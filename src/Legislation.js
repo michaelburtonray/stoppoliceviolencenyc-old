@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
+import ContentfulClient from './ContentfulClient';
+import { markdown } from 'markdown';
 import './legislation.css';
 
 class Legislation extends Component {
+  constructor() {
+    super();
+
+    const contentfulClient = new ContentfulClient();
+  }
+
   render() {
     return (
       <div className="legislation-page">
