@@ -1,0 +1,66 @@
+.events {
+  background: #BCFFD8;
+  color: #01343D;
+  margin: 1em 0;
+  max-width: 350px;
+  padding: 24px;
+}
+
+.events h2 {
+  font-size: 22px;
+}
+
+.events__event {
+  color: inherit;
+  display: flex;
+  font: normal 14px/14px Montserrat;
+  padding: 0.5em 0;
+  text-decoration: none;
+}
+
+.event__date-column {
+  background: #FC5F55;
+  flex-basis: 64px; 
+  flex-shrink: 0;
+  font: normal 17px/21px Montserrat;
+  margin-right: 24px;
+  text-align: center;
+}
+
+.event__day-of-the-week {
+  background: #FFF1E4;
+  color: #FC5F55;
+  display: block;
+  margin: 7px 7px 0;
+  text-transform: uppercase;
+}
+
+.event__day-of-the-month {
+  color: #FFF1E4;
+  display: block;
+}
+
+.event__info {
+  flex-grow: 1;
+}
+
+.event__name {
+}
+
+.event__full-date {
+  font-weight: bold;  
+}
+
+.event__place-name {
+  font-size: 12px;
+}
+
+.event__location-city {
+  font-size: 12px;
+}
+
+.events__view-more {
+  color: inherit;
+  font: bold 14px/24px Montserrat;
+  text-decoration: none;
+}
