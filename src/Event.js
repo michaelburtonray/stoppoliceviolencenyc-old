@@ -3,12 +3,9 @@ import moment from 'moment';
 
 function Event(props) {
   const event = props.event;
-  console.log(event);
-  console.log(moment().format());
   const daysOfTheWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat'];
   var eventDate = new Date(event.start_time);
   const dayOfTheWeek = daysOfTheWeek[eventDate.getDay()];
-
   const href = `https://www.facebook.com/events/${event.id}/`;
 
   return (

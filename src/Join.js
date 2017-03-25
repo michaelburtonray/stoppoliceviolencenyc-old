@@ -1,8 +1,10 @@
 /* global FB */
-
 import React, { Component } from 'react';
+import ContentfulClient from './ContentfulClient';
 import './join.css';
 import Event from './Event';
+import Section from './Section';
+import { markdown } from 'markdown';
 
 class Join extends Component {
   constructor() {
@@ -10,8 +12,28 @@ class Join extends Component {
 
     this.state = {
       title: '',
+      subtitle: '',
+      intro: '',
+      sections: [],
       events: []
     }
+
+    const contentfulClient = new ContentfulClient();
+
+    contentfulClient.getJoin()
+    .then(response => {
+      return response.items[0]
+    }).then(data => {
+      const title = data.fields.title;
+      const subtitle = data.fields.subtitle;
+      const intro = data.fields.intro;
+      const sections = data.fields.sections.map(section => {
+        const heading = section.fields.heading;
+        const content = markdown.toHTML( section.fields.content );
+        return { heading, content }
+      });
+      this.setState({title,subtitle,intro,sections})
+    });
 
     FB.api(
       '/StopPoliceViolenceNYC/events',
@@ -20,18 +42,18 @@ class Join extends Component {
         access_token: '1822632521322919|b17e6b343ca31c330d1912613961f381'
       },
       (response) => {
-          // Insert your code here
-
-          console.log(response);
-          this.setState({events: response.data})
+        this.setState({events: response.data})
       }
     );
-
-
   }
+
   render() {
     return (
       <div className="join-page">
+        <h1>{this.state.title}</h1>
+        <h3>{this.state.subtitle}</h3>
+        <div className="join-page__intro">{this.state.intro}</div>
+        {this.state.sections.map((section, idx) => <Section section={section} key={idx} />)}
         <section className="events">
           <h2>Upcoming Events</h2>
           {this.state.events.slice(0,3).map((event, idx) => <Event event={event} key={idx} />)}

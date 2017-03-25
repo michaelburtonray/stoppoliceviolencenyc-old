@@ -8,6 +8,7 @@
 .wrapper {
   background: #FFF2E5;
   flex-grow: 1;
+  padding: 60px 0 200px;
   transition: transform 400ms;
 }
 @media (max-width: 1023px) {

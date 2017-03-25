@@ -15,18 +15,18 @@ class Faq extends Component {
     }
 
     contentfulClient.getFaq()
-      .then(response => {
+    .then(response => {
 
-        const title = response.items[0].fields.title;
+      const title = response.items[0].fields.title;
 
-        const questions = response.items[0].fields.questions.map(qa => {
-          const question = qa.fields.question;
-          const answer = markdown.toHTML( qa.fields.answer );
-          return { question, answer }
-        })
-
-        this.setState({ title, questions })
+      const questions = response.items[0].fields.questions.map(qa => {
+        const question = qa.fields.question;
+        const answer = markdown.toHTML( qa.fields.answer );
+        return { question, answer }
       })
+
+      this.setState({ title, questions })
+    })
   }
 
   render() {
