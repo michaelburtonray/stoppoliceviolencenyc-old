@@ -1,19 +1,21 @@
-.faq-page h1 {
-  font-size: 48px;
+@media (min-width: 768px) {
+  .faq-page h1 {
+    font-size: 48px;
+  }
 }
-
 .faq-page__contents {
-  font: italic normal 18px/1 'Crimson Text';
+  font: italic normal 18px/1.95 'Crimson Text';
   list-style: none;
   margin: 1em 0;
   padding-left: 0;
 }
 
 .faq-page__contents li {
-  margin: 1em 0;
+  /*margin: 1em 0;*/
 }
 
 .faq-page__contents a {
+  display: inline-block;
   color: inherit;
   text-decoration: none;
 }
@@ -37,3 +39,18 @@
     margin-left: 0;
     margin: 1em 0 2em;
   }
+
+
+.icon-leftwards-arrow-with-loop {
+ text-decoration: none;
+ text-transform: lowercase; 
+}
+.icon-leftwards-arrow-with-loop::before {
+  content: 'Back to top';
+}
+.icon-leftwards-arrow-with-loop::after {
+  content: "\2197";
+  margin-left: 0.25em;
+  /*transform: rotate(90deg);*/
+  display: inline-block;
+}

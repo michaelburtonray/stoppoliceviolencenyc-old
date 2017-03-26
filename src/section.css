@@ -3,6 +3,23 @@
 }
 
 .section__content {
-  font: 17px/21px Montserrat;
+  font: 17px/1.2353 Montserrat;
   max-width: 688px;
 }
+
+.section__content h3 {
+  font: bold 22px/24px Montserrat;
+  margin: 1em 0 0;
+}
+.section__content h3 + p {
+  margin-top: 0;
+}
+
+.section__content ul {
+  font: 400 16px/2 Montserrat;
+  list-style-type: none;
+  padding-left: 0;
+}
+@media (min-width: 768px) { .section__content ul {
+  font-size: 18px;
+}}

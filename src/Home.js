@@ -51,7 +51,6 @@ class Home extends Component {
   }
 
   getSlide(slide) {
-    console.log(slide);
     return (
       <div key={slide.sys.id}><img src={slide.fields.file.url} alt={slide.fields.title} /></div>
     )

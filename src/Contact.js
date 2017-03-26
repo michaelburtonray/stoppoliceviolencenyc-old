@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContentfulClient from './ContentfulClient';
 import { markdown } from 'markdown';
+import './contact.css';
 
 class Contact extends Component {
   constructor() {

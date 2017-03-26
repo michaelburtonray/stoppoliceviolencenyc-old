@@ -1,0 +1,12 @@
+.contact-page {
+
+}
+
+.contact-page__content p {
+  font: normal 1em/1.5625 Montserrat,  sans-serif;
+}
+
+.contact-page__content p a {
+  color: inherit;
+  text-decoration: none;
+}

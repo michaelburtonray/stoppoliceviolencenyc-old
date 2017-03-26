@@ -12,8 +12,12 @@
   margin: 1em 0 0.5em;
 }
 .home-page__intro h1 {
-  font-size: 56px;
   margin-top: 0;
+}
+@media (min-width: 1024px) {
+.home-page__intro h1 {
+  font-size: 56px;
+}  
 }
 .home-page__intro p {
   border-left: 2px solid #01343D;

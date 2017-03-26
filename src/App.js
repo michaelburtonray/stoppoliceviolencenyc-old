@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from 'react-router';
+import ContentfulClient from './ContentfulClient';
 
 import logo from './logo.svg';
 import logoBlue from './logo-blue.svg';
@@ -11,17 +12,46 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
+
     this.ACTIVE = { color: 'white' }
 
     this.state = {
-      mobileNavIsActive: false
+      mobileNavIsActive: false,
+      joinSections: []
     }
 
     this.toggleActiveMobileNav = this.toggleActiveMobileNav.bind(this);
+    this.toggleCloseMobileNav = this.toggleCloseMobileNav.bind(this);
+
+
+    const contentfulClient = new ContentfulClient();
+
+    contentfulClient.getJoin()
+    .then(response => {
+      return response.items[0]
+    }).then(data => {
+      const joinSections = data.fields.sections.map(section => {
+        const heading = section.fields.heading;
+        const href = `/join#${section.fields.heading.replace(/\s+/g, '-').toLowerCase()}`;
+        return { heading, href }
+      });
+      this.setState({joinSections})
+    });
+
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', event => {
+      this.setState({ mobileNavIsActive: false });
+    });
   }
 
   toggleActiveMobileNav(event) {
     this.setState({ mobileNavIsActive: !this.state.mobileNavIsActive });
+  }
+
+  toggleCloseMobileNav(event) {
+    this.setState({ mobileNavIsActive: false });    
   }
 
   getMobileNavClassList() {
@@ -39,7 +69,7 @@ class App extends Component {
         <header className="header">
           <div className="content header__content">
 
-            <IndexLink className="logo" to="/">
+            <IndexLink className="logo" to="/" onClick={this.toggleCloseMobileNav}>
               <img src={logo} alt="logo" />
             </IndexLink>
 
@@ -47,7 +77,12 @@ class App extends Component {
 
             <nav className="mainnav">
               <IndexLink className="mainnav-anchor" activeStyle={this.ACTIVE} to="/">Why An Elected Board?</IndexLink>
-              <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
+              <span>
+                <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
+                <div className="mainnav__subnavigation">
+                  {this.state.joinSections.map(joinSection => <a href={joinSection.href}>{joinSection.heading}</a>)}
+                </div>
+              </span>
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
@@ -57,7 +92,7 @@ class App extends Component {
           </div>
         </header>
 
-        <nav className={this.getMobileNavClassList()}>
+        <nav className={this.getMobileNavClassList()} onClick={this.toggleActiveMobileNav}>
           <IndexLink className="mainnav-anchor" activeStyle={this.ACTIVE} to="/">Why An Elected Board?</IndexLink>
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>

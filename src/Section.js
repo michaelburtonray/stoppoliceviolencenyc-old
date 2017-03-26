@@ -2,7 +2,6 @@ import React from 'react';
 import './section.css';
 
 function Section(props) {
-  console.log(props);
   return (
     <section id={ props.section.heading.replace(/\s+/g, '-').toLowerCase() }>
       <h2>{props.section.heading}</h2>
