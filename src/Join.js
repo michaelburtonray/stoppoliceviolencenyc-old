@@ -1,6 +1,7 @@
 /* global FB */
 import React, { Component } from 'react';
 import ContentfulClient from './ContentfulClient';
+import EcrbSlideshow from './EcrbSlideshow'
 import './join.css';
 import Event from './Event';
 import Section from './Section';
@@ -12,6 +13,7 @@ class Join extends Component {
 
     this.state = {
       title: '',
+      sliderSlides: [],
       subtitle: '',
       intro: '',
       sections: [],
@@ -34,14 +36,19 @@ class Join extends Component {
         const content = markdown.toHTML( section.fields.content );
         return { heading, content }
       });
-      this.setState({title,subtitle,intro,sections})
+
+      const sliderSlides = data.fields.sliderSlides;
+
+      this.setState({title,subtitle,intro,sections,sliderSlides})
     });
 
     contentfulClient.getJoinPageSlides()
-    .then(response => response.items[0])
-    .then(data => {
-      console.log(data);
-    })
+    .then(response => {
+      const data = response.items[0];
+      const title = data.fields.title;
+      const sliderSlides = data.fields.slides;
+      this.setState({ title, sliderSlides })
+    });
 
 
 
@@ -60,6 +67,9 @@ class Join extends Component {
   render() {
     return (
       <div className="join-page">
+        <EcrbSlideshow slicksettings={this.slicksettings} sliderSlides={this.state.sliderSlides}  />
+
+
         <h1>{this.state.title}</h1>
         <h3>{this.state.subtitle}</h3>
         <div className="join-page__intro" dangerouslySetInnerHTML={{ __html: this.state.intro }}></div>
