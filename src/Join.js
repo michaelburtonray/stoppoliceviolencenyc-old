@@ -17,16 +17,18 @@ class Join extends Component {
       sections: [],
       events: []
     }
+  }
 
+  componentDidMount() {
     const contentfulClient = new ContentfulClient();
 
     contentfulClient.getJoin()
     .then(response => {
       return response.items[0]
     }).then(data => {
-      const title = data.fields.title;
-      const subtitle = data.fields.subtitle;
-      const intro = data.fields.intro;
+      const { title, subtitle } = data.fields;
+      const intro = markdown.toHTML( data.fields.intro );
+
       const sections = data.fields.sections.map(section => {
         const heading = section.fields.heading;
         const content = markdown.toHTML( section.fields.content );
@@ -34,6 +36,14 @@ class Join extends Component {
       });
       this.setState({title,subtitle,intro,sections})
     });
+
+    contentfulClient.getJoinPageSlides()
+    .then(response => response.items[0])
+    .then(data => {
+      console.log(data);
+    })
+
+
 
     FB.api(
       '/StopPoliceViolenceNYC/events',
@@ -52,7 +62,7 @@ class Join extends Component {
       <div className="join-page">
         <h1>{this.state.title}</h1>
         <h3>{this.state.subtitle}</h3>
-        <div className="join-page__intro">{this.state.intro}</div>
+        <div className="join-page__intro" dangerouslySetInnerHTML={{ __html: this.state.intro }}></div>
         {this.state.sections.map((section, idx) => <Section section={section} key={idx} />)}
         <section className="events">
           <h2>Upcoming Events</h2>

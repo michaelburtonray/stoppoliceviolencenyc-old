@@ -2,8 +2,13 @@
 
 }
 
+.section__heading {
+  margin: 0.83em 0;  
+}
+
 .section__content {
-  font: 17px/1.2353 Montserrat;
+  font: 14px/22px Montserrat;
+  /*font-size: 17px;*/
   max-width: 688px;
 }
 
@@ -23,3 +28,4 @@
 @media (min-width: 768px) { .section__content ul {
   font-size: 18px;
 }}
+

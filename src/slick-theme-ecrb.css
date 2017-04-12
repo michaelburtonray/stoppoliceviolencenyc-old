@@ -192,3 +192,59 @@ $slick-opacity-not-active: 0.25 !default;
     }
   }
 }
+
+.slick-slide img {
+  display: block;
+  height: calc(100vw*385/1200);
+  margin: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .slick-slide img {
+    height: calc(1024px*385/1200);
+  }
+}
+
+.slick-slide__caption {
+  align-items: center;
+  background: hsla(189, 97%, 12%, .5);
+  bottom: 0;
+  color: #F7EBE3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+.slick-slide__caption :first-child {
+  margin-top: 0;
+}
+
+.slick-slide__caption :last-child {
+  margin-bottom: 0;
+}
+
+.slick-slide__caption h2 {
+  color: inherit;
+  font: 45px/1 Montserrat;
+  margin: 0;
+}
+
+.slick-slide__caption p:empty {
+  display: none;
+}
+
+.slick-slider {
+  margin: -60px -16px 0;
+}
+@media(min-width:736px) {
+  .slick-slider {
+    margin: -60px -40px 0;
+  }
+}

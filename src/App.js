@@ -22,7 +22,17 @@ class App extends Component {
 
     this.toggleActiveMobileNav = this.toggleActiveMobileNav.bind(this);
     this.toggleCloseMobileNav = this.toggleCloseMobileNav.bind(this);
+  }
 
+  componentDidMount() {
+    window.addEventListener('scroll', event => {
+      this.setState({ mobileNavIsActive: false });
+    });
+
+    this.populateJoinSub();
+  }
+
+  populateJoinSub() {
 
     const contentfulClient = new ContentfulClient();
 
@@ -33,17 +43,13 @@ class App extends Component {
       const joinSections = data.fields.sections.map(section => {
         const heading = section.fields.heading;
         const href = `/join#${section.fields.heading.replace(/\s+/g, '-').toLowerCase()}`;
-        return { heading, href }
+        const id = section.sys.id;
+        return { heading, href, id }
       });
       this.setState({joinSections})
     });
 
-  }
 
-  componentDidMount() {
-    window.addEventListener('scroll', event => {
-      this.setState({ mobileNavIsActive: false });
-    });
   }
 
   toggleActiveMobileNav(event) {
@@ -80,7 +86,7 @@ class App extends Component {
               <span>
                 <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
                 <div className="mainnav__subnavigation">
-                  {this.state.joinSections.map(joinSection => <a href={joinSection.href}>{joinSection.heading}</a>)}
+                  {this.state.joinSections.map(joinSection => <a href={joinSection.href} key={joinSection.id}>{joinSection.heading}</a>)}
                 </div>
               </span>
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>

@@ -23,10 +23,10 @@
   box-sizing: border-box;
   margin: auto;
   max-width: 1024px;
-  padding: 0 1em;
+  padding: 0 16px;
 }
 @media(min-width:736px) { .content {
-  padding: 0 2.5em;
+  padding: 0 40px;
 } }
 
 .logo {
@@ -115,11 +115,13 @@
   .mainnav {
     align-items: center;
     display: flex;
+    flex-grow: 1;
     font: 700 13px/1 'Montserrat', sans-serif;
-    justify-content: flex-end;
+    justify-content: space-around;
   }
 }
 .mainnav span {
+  flex-grow: 1;
   position: relative;
 }
 .mainnav span:hover .mainnav__subnavigation {
@@ -151,7 +153,8 @@
 }
 .mainnav-anchor {
   color: inherit;
-  display: inline-block;
+  display: block;
+  flex-grow: 1;
   padding: 9px;
   text-align: center;
   text-decoration: none;
