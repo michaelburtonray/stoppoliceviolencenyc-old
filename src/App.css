@@ -131,15 +131,13 @@
 }
 .mainnav__subnavigation {
   background: #FD5F55;
-  border: 1px solid #F8ECE4;
   color: #F8ECE4;
   font: 400 13px/2 'Montserrat', sans-serif;
   opacity: 0;
   padding: 9px 9px 1em;
   position: absolute;
-  text-transform: none;
   transform: scale(.85);
-  transition: opacity 400ms, transform 400ms;
+  /*transition: opacity 400ms, transform 400ms;*/
   white-space: pre-line;
 }
 .mainnav__subnavigation a {
