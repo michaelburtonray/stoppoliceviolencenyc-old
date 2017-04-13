@@ -45,9 +45,8 @@ class Join extends Component {
     contentfulClient.getJoinPageSlides()
     .then(response => {
       const data = response.items[0];
-      const title = data.fields.title;
       const sliderSlides = data.fields.slides;
-      this.setState({ title, sliderSlides })
+      this.setState({ sliderSlides })
     });
 
 
