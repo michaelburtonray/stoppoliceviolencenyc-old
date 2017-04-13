@@ -65,6 +65,7 @@ class Join extends Component {
   }
 
   render() {
+    const firstSection = this.state.sections[0];
     return (
       <div className="join-page">
         <EcrbSlideshow slicksettings={this.slicksettings} sliderSlides={this.state.sliderSlides}  />
@@ -73,12 +74,16 @@ class Join extends Component {
         <h1>{this.state.title}</h1>
         <h3>{this.state.subtitle}</h3>
         <div className="join-page__intro" dangerouslySetInnerHTML={{ __html: this.state.intro }}></div>
-        {this.state.sections.map((section, idx) => <Section section={section} key={idx} />)}
-        <section className="events">
-          <h2>Upcoming Events</h2>
-          {this.state.events.slice(0,3).map((event, idx) => <Event event={event} key={idx} />)}
-          <a className="events__view-more" href="https://www.facebook.com/pg/StopPoliceViolenceNYC/events/" target="_blank">View more&hellip;</a>
-        </section>
+
+        <Section {...firstSection}>
+          <section className="events">
+            <h2>Upcoming Events</h2>
+            {this.state.events.slice(0,3).map((event, idx) => <Event event={event} key={idx} />)}
+            <a className="events__view-more" href="https://www.facebook.com/pg/StopPoliceViolenceNYC/events/" target="_blank">View more&hellip;</a>
+          </section>
+        </Section>
+
+        {this.state.sections.slice(1).map((section, idx) => <Section {...section} key={idx} />)}
       </div>
     )
   }

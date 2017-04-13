@@ -27,7 +27,7 @@ h2 {
 }
 @media (min-width:1024px) {
   h2 {
-    font: 700 36px/24px Montserrat,  sans-serif
+    font: 700 36px/1 Montserrat,  sans-serif
   }
 }
 
