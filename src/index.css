@@ -1,6 +1,9 @@
 :root {
   font-family: 'Crimson Text', serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -16,7 +19,7 @@ h1 {
 }
 @media (min-width:1024px) {
   h1 {
-    font: 700 48px/1 Montserrat,  sans-serif;  
+    font: 700 48px/1 Montserrat,  sans-serif;
   }
 }
 
