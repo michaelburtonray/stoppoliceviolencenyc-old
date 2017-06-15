@@ -52,7 +52,7 @@ class Faq extends Component {
       <div key={idx}>
         <dt id={ questionAnswer.question.replace(/\s+/g, '-').toLowerCase() }>{ questionAnswer.question }</dt>
         <dd dangerouslySetInnerHTML={{ __html: questionAnswer.answer }} />
-        <a className="icon-leftwards-arrow-with-loop" href="#"></a>
+        <button className="icon-leftwards-arrow-with-loop" onClick={() => { window.scrollTo(0, 0) }}></button>
       </div>
     )
   }

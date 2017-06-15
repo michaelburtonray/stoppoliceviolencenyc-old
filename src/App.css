@@ -60,7 +60,7 @@
 
 @media (min-width: 1024px) {
   .header__content {
-    height: 158px;  
+    height: 158px;
     padding: 0 2em;
   }
 }
@@ -198,6 +198,10 @@
   background: white;
 }
 
+.footer-social-anchor span {
+  display: none;
+}
+
 .footer-bottom {
   background: #FD5F55;
   color: #052531;
@@ -229,7 +233,7 @@
 
 @media (min-width: 1024px) {
   .subscribe-form {
-    flex-basis: 292px;  
+    flex-basis: 292px;
 
     padding: 0 96px;
   }

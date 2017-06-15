@@ -9,7 +9,7 @@ function Event(props) {
   const href = `https://www.facebook.com/events/${event.id}/`;
 
   return (
-    <a href={href} target="_blank" className="events__event">
+    <a className="events__event" href={href} target="_blank" rel="noopener noreferrer">
       <div className="event__date-column">
         <div className="event__day-of-the-week">{dayOfTheWeek}</div>
         <div className="event__day-of-the-month">{eventDate.getDate()}</div>
@@ -24,7 +24,7 @@ function Event(props) {
   )
 }
 
-function DisplayDate(props) {  
+function DisplayDate(props) {
   let start_time = moment(props.start_time);
 
   return <div>{start_time.format('LLLL')}</div>

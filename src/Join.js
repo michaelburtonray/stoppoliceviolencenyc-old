@@ -78,7 +78,7 @@ class Join extends Component {
           <section className="events">
             <h2>Upcoming Events</h2>
             {this.state.events.slice(0,3).map((event, idx) => <Event event={event} key={idx} />)}
-            <a className="events__view-more" href="https://www.facebook.com/pg/StopPoliceViolenceNYC/events/" target="_blank">View more&hellip;</a>
+            <a className="events__view-more" href="https://www.facebook.com/pg/StopPoliceViolenceNYC/events/" target="_blank" rel="noopener noreferrer">View more&hellip;</a>
           </section>
         </Section>
 
