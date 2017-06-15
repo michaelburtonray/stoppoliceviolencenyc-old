@@ -28,8 +28,7 @@ function EcrbSlideshow(props) {
               <div data-index={idx} key={slide.sys.id}>
                 <img src={slide.fields.file.url} alt={slide.fields.title} />
                 <div className='slick-slide__caption'>
-                  <h2>{slide.fields.title}</h2>
-                  <p>{slide.fields.description}</p>
+                  <h2>{slide.fields.description}</h2>
                 </div>
               </div>
             )

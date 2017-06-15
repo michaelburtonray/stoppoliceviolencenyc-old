@@ -14,7 +14,7 @@ class ContentfulClient {
     const options = {
       'page': 'Home Page'
     }
-    
+
     return this.client.getEntries({content_type, options});
   }
 
@@ -25,16 +25,16 @@ class ContentfulClient {
 
   getJoin() {
     const content_type = 'joinPage';
-    return this.client.getEntries({content_type});    
+    return this.client.getEntries({content_type});
   }
 
   getJoinPageSlides() {
-    const content_type = 'homepageSlideshow';
+    const content_type = 'joinSlideshow';
 
     const options = {
       'page': 'Join the Campaign'
     }
-    
+
     return this.client.getEntries({content_type, options});
   }
 
