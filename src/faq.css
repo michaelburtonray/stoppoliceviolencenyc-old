@@ -42,8 +42,15 @@
 
 
 .icon-leftwards-arrow-with-loop {
- text-decoration: none;
- text-transform: lowercase; 
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: #FC5F55;
+  cursor: pointer;
+  font: inherit;
+  padding: none;
+  text-decoration: none;
+  text-transform: lowercase;
 }
 .icon-leftwards-arrow-with-loop::before {
   content: 'Back to top';
@@ -53,4 +60,7 @@
   margin-left: 0.25em;
   /*transform: rotate(90deg);*/
   display: inline-block;
+}
+.icon-leftwards-arrow-with-loop:focus {
+  outline: none;
 }

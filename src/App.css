@@ -60,7 +60,7 @@
 
 @media (min-width: 1024px) {
   .header__content {
-    height: 158px;  
+    height: 158px;
     padding: 0 2em;
   }
 }
@@ -130,8 +130,8 @@
   transform: none;
 }
 .mainnav__subnavigation {
-  background: #FD5F55;
-  color: #F8ECE4;
+  background: #01343D;
+  color: white;
   font: 400 13px/2 'Montserrat', sans-serif;
   opacity: 0;
   padding: 9px 9px 1em;
@@ -198,6 +198,10 @@
   background: white;
 }
 
+.footer-social-anchor span {
+  display: none;
+}
+
 .footer-bottom {
   background: #FD5F55;
   color: #052531;
@@ -229,7 +233,7 @@
 
 @media (min-width: 1024px) {
   .subscribe-form {
-    flex-basis: 292px;  
+    flex-basis: 292px;
 
     padding: 0 96px;
   }

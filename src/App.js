@@ -57,7 +57,7 @@ class App extends Component {
   }
 
   toggleCloseMobileNav(event) {
-    this.setState({ mobileNavIsActive: false });    
+    this.setState({ mobileNavIsActive: false });
   }
 
   getMobileNavClassList() {
@@ -92,7 +92,7 @@ class App extends Component {
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
               <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
-              <a className="mainnav-anchor button yellow-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
+              <a className="mainnav-anchor button yellow-on-orange" href="//gofundme.com/ecrbnyc" target="_blank" rel="noopener noreferrer">Donate Now!</a>
             </nav>
 
           </div>
@@ -104,7 +104,7 @@ class App extends Component {
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
-          <a className="mainnav-anchor button yellow-on-orange" href="//gofundme.com/ecrbnyc" target="_blank">Donate Now!</a>
+          <a className="mainnav-anchor button yellow-on-orange" href="//gofundme.com/ecrbnyc" target="_blank" rel="noopener noreferrer">Donate Now!</a>
         </nav>
 
         <div className="wrapper">
@@ -116,15 +116,15 @@ class App extends Component {
         <footer className="footer">
           <div className="footer-social">
             <nav className="content footer-social__content">
-              <a className="footer-social-anchor" href="//facebook.com/stoppoliceviolencenyc" target="_blank"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-              <a className="footer-social-anchor" href="//instagram.com/nyc_ecrb" target="_blank"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+              <a className="footer-social-anchor" href="//facebook.com/stoppoliceviolencenyc" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
+              <a className="footer-social-anchor" href="//instagram.com/nyc_ecrb" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram" aria-hidden="true"></i><span>instagram</span></a>
             </nav>
           </div>
 
           <div className="footer-bottom">
             <div className="content footer-bottom__content">
               <a  className="logo" href="/">
-                <img src={logoBlue} alt="logo" />            
+                <img src={logoBlue} alt="logo" />
               </a>
 
               <form className="subscribe-form">
@@ -139,13 +139,13 @@ class App extends Component {
                     <br/>
                     volunteer!
                   </label>
-                  <input className="button yellow-on-orange" type="submit" />              
+                  <input className="button yellow-on-orange" type="submit" />
                 </div>
 
               </form>
 
               <div className="column">
-                <a className="button yellow-on-blue" href="//google.com" target="_blank">Donate Now!</a>
+                <a className="button yellow-on-blue" href="//google.com" target="_blank" rel="noopener noreferrer">Donate Now!</a>
               </div>
             </div>
           </div>

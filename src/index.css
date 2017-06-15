@@ -1,5 +1,6 @@
 :root {
   font-family: 'Crimson Text', serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
