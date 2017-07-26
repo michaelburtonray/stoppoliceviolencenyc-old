@@ -216,6 +216,7 @@ $slick-opacity-not-active: 0.25 !default;
   flex-direction: column;
   justify-content: center;
   left: 0;
+  padding: 0 1em;
   pointer-events: none;
   position: absolute;
   right: 0;
@@ -232,8 +233,18 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-slide__caption h2 {
   color: inherit;
-  font: 45px/1 Montserrat;
+  font: 1.5em/1 Montserrat;
   margin: 0;
+}
+@media (min-width: 480px) {
+  .slick-slide__caption h2 {
+    font-size: 45px;
+  }
+}
+@media (min-width: 1024px) {
+  .slick-slide__caption h2 {
+    font-size: 45px;
+  }
 }
 
 .slick-slide__caption p:empty {

@@ -10,12 +10,17 @@
   box-sizing: border-box;
   flex-grow: 1;
   min-height: 100vh;
-  padding: 60px 0 200px;
+  padding: 1em 0 200px;
   transition: transform 400ms;
 }
 @media (max-width: 1023px) {
   .mainnav--active .wrapper {
     transform: translateY(calc(100vh - 80px));
+  }
+}
+@media (min-width: 1024px) {
+  .wrapper {
+    padding-top: 60px;
   }
 }
 
@@ -29,10 +34,13 @@
   padding: 0 40px;
 } }
 
-.logo {
-  display: inline-block;
-  transform: translateY(-15%);
+@media (min-width: 1024px) {
+  .logo {
+    display: inline-block;
+    transform: translateY(-15%);
+  }
 }
+
 .logo img {
   height: 40px;
 }
@@ -83,8 +91,10 @@
   .mainnav--mobile {
     align-items: center;
     background: #052531;
+    color: #bdffd9;
     display: flex;
     flex-direction: column;
+    font: 700 13px/1 'Montserrat', sans-serif;
     height: calc(100vh - 80px);
     justify-content: center;
     left: 0;
@@ -102,6 +112,10 @@
     opacity: 1;
     pointer-events: auto;
     transform: none;
+  }
+
+  .mainnav--mobile .mainnav-anchor {
+    flex-grow: 0;
   }
 }
 
@@ -240,13 +254,13 @@
 }
 
 .subscribe-form__bottom {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   justify-content: flex-end;
 }
 
-.subscribe-form label {
-  margin: 3px 0.5ex;
+.subscribe-form .subscribe-form__top {
+  margin: 3px 0.5px;
 }
 
 .subscribe-form .button {

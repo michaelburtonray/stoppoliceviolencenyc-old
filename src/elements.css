@@ -12,6 +12,7 @@ label[for] {
 input[type=checkbox] {
   -webkit-appearance: none;
   background-color: #F7EBE3;
+  border-radius: 0;
   height: 14.667px;
   width: 14.667px;
 }
@@ -23,6 +24,7 @@ input[type=checkbox]:checked {
 input[type=email] {
   background: #FFF2E5;
   border-color: transparent;
+  border-radius: 0;
   box-sizing: border-box;
   font: normal 15px/normal 'Montserrat', sans-serif;
   margin: 0.50em 0;

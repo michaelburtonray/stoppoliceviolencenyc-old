@@ -32,7 +32,7 @@
 .faq-page__question-answers dt {
     color: #FC5F55;
     font: 700 22px/1.2 Montserrat;
-    margin-top: 2em;
+    padding-top: 2em;
   }
 .faq-page__question-answers dd {
     font: 16px/1.2 'Crimson Text';
