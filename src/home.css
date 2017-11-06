@@ -14,9 +14,9 @@
 @media (min-width: 1024px) {
 .home-page__intro h1 {
   font-size: 56px;
-}  
 }
-.home-page__intro p {
+}
+.home-page__intro blockquote {
   border-left: 2px solid #01343D;
   border-right: 2px solid #01343D;
   font: 400 italic 25px/normal 'Crimson Text';

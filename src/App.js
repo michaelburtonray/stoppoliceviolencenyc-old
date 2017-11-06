@@ -134,17 +134,26 @@ class App extends Component {
 
   formSubscribe() {
     return (
-      <form className="subscribe-form" action="//stoppoliceviolenceNYC.us15.list-manage.com/subscribe/post?u=88d16b0689b23efe0b7c90fe2&amp;id=7ded0f69b4" method="post">
+      <form className="subscribe-form" action="//stoppoliceviolenceNYC.us15.list-manage.com/subscribe/post" method="post">
+
+        <input type="hidden" name="u" value="88d16b0689b23efe0b7c90fe2" />
+        <input type="hidden" name="id" value="7ded0f69b4" />
+
+        <input type="hidden" name="b_88d16b0689b23efe0b7c90fe2_7ded0f69b4" />
+
         <div className="subscribe-form__top">
           <label htmlFor="mce-EMAIL">Sign up for campaign updates</label>
           <input type="email" name="EMAIL" className="required email" placeholder="Email Address" id="mce-EMAIL" />
         </div>
+
         <div className="subscribe-form__bottom">
-          <input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0" />
+
+        <input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0" />
           <label htmlFor="mce-group[2585]-2585-0">I want to volunteer!</label>
-          <input type="hidden" name="b_88d16b0689b23efe0b7c90fe2_7ded0f69b4" />
+
           <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button yellow-on-orange">Subscribe</button>
         </div>
+
       </form>
     )
   }

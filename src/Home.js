@@ -44,9 +44,9 @@ class Home extends Component {
         <EcrbSlideshow slicksettings={this.slicksettings} sliderSlides={this.state.sliderSlides}  />
 
         <div className="home-page__intro">
-          <span>let’s start with an</span>
+          <span>with an</span>
           <h1>Elected Civilian Review Board.</h1>
-          <p>Representing the people and holding police accountable, ECRB members are elected at the community level, offering genuine oversight and recourse to victims of police abuse.</p>
+          <blockquote>Representing the people and holding police accountable, ECRB members are elected at the community level, offering genuine oversight and recourse to victims of police abuse.</blockquote>
         </div>
 
         <div className="home-page__content">
