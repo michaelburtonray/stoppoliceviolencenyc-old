@@ -50,7 +50,7 @@ class Home extends Component {
         </div>
 
         <div className="home-page__content">
-          <div className="home-page__diagram-intro" dangerouslySetInnerHTML={{ __html: this.state.homePageDiagramIntro }} />
+          <div className="home-page__diagram-intro" id="why-an-elected-board" dangerouslySetInnerHTML={{ __html: this.state.homePageDiagramIntro }} />
           <img className="home-page__diagram-image" src={this.state.homePageDiagramSrc} alt="diagram for why we need an Review Board" />
         </div>
       </div>

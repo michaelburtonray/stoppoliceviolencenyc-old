@@ -49,18 +49,39 @@ class Join extends Component {
       this.setState({ sliderSlides })
     });
 
+    window.fbAsyncInit = () => {
+      FB.init({
+        appId      : '1822632521322919',
+        xfbml      : true,
+        version    : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+
+      const date_now = Date.now()
+
+      FB.api(
+        '/StopPoliceViolenceNYC/events',
+        'GET',
+        {
+          access_token: '1822632521322919|b17e6b343ca31c330d1912613961f381'
+        },
+        (response) => {
+          const events = response.data.filter(event => new Date(event.start_time) > date_now);
+          this.setState({events})
+        }
+      );
 
 
-    FB.api(
-      '/StopPoliceViolenceNYC/events',
-      'GET',
-      {
-        access_token: '1822632521322919|b17e6b343ca31c330d1912613961f381'
-      },
-      (response) => {
-        this.setState({events: response.data})
-      }
-    );
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      // js.src = "//connect.facebook.net/en_US/sdk/debug.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
   }
 
   render() {

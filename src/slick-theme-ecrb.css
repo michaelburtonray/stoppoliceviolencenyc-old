@@ -252,9 +252,9 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-slider {
-  margin: -60px -16px 0;
+  margin: -1em -16px 0;
 }
-@media(min-width:736px) {
+@media(min-width:1024px) {
   .slick-slider {
     margin: -60px -40px 0;
   }
