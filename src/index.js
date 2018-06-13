@@ -9,15 +9,17 @@ import Join from './Join.js';
 import Legislation from './Legislation';
 import Faq from './Faq';
 import Contact from './Contact';
+import PrivacyPolicy from './PrivacyPolicy';
 
 ReactDOM.render((
-  <Router history={browserHistory}>
+  <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/join" component={Join} />
       <Route path="/legislation" component={Legislation} />
       <Route path="/faq" component={Faq} />
       <Route path="/contact" component={Contact} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
     </Route>
   </Router>
 ), document.getElementById('root'))

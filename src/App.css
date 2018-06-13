@@ -271,3 +271,12 @@
 input::placeholder {
   text-transform: uppercase;
 }
+
+.privacy-policy-link {
+  color: inherit;
+  display: inline-block;
+  font: 100 smaller/1 'Montserrat', sans-serif;
+  margin-top: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}

@@ -37,17 +37,17 @@ class App extends Component {
     const contentfulClient = new ContentfulClient();
 
     contentfulClient.getJoin()
-    .then(response => {
-      return response.items[0]
-    }).then(data => {
-      const joinSections = data.fields.sections.map(section => {
-        const heading = section.fields.heading;
-        const href = `/join#${section.fields.heading.replace(/\s+/g, '-').toLowerCase()}`;
-        const id = section.sys.id;
-        return { heading, href, id }
+      .then(response => {
+        return response.items[0]
+      }).then(data => {
+        const joinSections = data.fields.sections.map(section => {
+          const heading = section.fields.heading;
+          const href = `/join#${section.fields.heading.replace(/\s+/g, '-').toLowerCase()}`;
+          const id = section.sys.id;
+          return { heading, href, id }
+        });
+        this.setState({ joinSections })
       });
-      this.setState({joinSections})
-    });
 
 
   }
@@ -61,11 +61,11 @@ class App extends Component {
   }
 
   getMobileNavClassList() {
-    return ['mainnav--mobile', this.state.mobileNavIsActive? 'mainnav--active' : ''].join(' ')
+    return ['mainnav--mobile', this.state.mobileNavIsActive ? 'mainnav--active' : ''].join(' ')
   }
 
   getAppClassList() {
-    return ["App", this.state.mobileNavIsActive? 'mainnav--active' : ''].join(' ')
+    return ["App", this.state.mobileNavIsActive ? 'mainnav--active' : ''].join(' ')
   }
 
   mailchimpForm() {
@@ -78,20 +78,20 @@ class App extends Component {
             <div className="mc-field-group">
               <label htmlFor="mce-EMAIL">Email Address  <span className="asterisk">*</span>
               </label>
-              <input type="email" name="EMAIL" className="required email" id="mce-EMAIL"/>
+              <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" />
             </div>
             <div className="mc-field-group">
               <label htmlFor="mce-FNAME">First Name </label>
-              <input type="text" name="FNAME" className="" id="mce-FNAME"/>
+              <input type="text" name="FNAME" className="" id="mce-FNAME" />
             </div>
             <div className="mc-field-group">
               <label htmlFor="mce-LNAME">Last Name </label>
-              <input type="text" name="LNAME" className="" id="mce-LNAME"/>
+              <input type="text" name="LNAME" className="" id="mce-LNAME" />
             </div>
             <div className="mc-field-group input-group">
               <strong>Do you want to volunteer? </strong>
               <ul>
-                <li><input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0"/><label htmlFor="mce-group[2585]-2585-0">I want to volunteer!</label></li>
+                <li><input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0" /><label htmlFor="mce-group[2585]-2585-0">I want to volunteer!</label></li>
               </ul>
             </div>
             <div id="mce-responses" className="clear">
@@ -125,7 +125,7 @@ class App extends Component {
             <div class="response" id="mce-error-response" style={{ display: "none" }}></div>
             <div class="response" id="mce-success-response" style={{ display: "none" }}></div>
           </div>
-          <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_88d16b0689b23efe0b7c90fe2_7ded0f69b4" tabindex="-1" /></div>
+          <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true"><input type="text" name="b_88d16b0689b23efe0b7c90fe2_7ded0f69b4" tabindex="-1" /></div>
           <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button yellow-on-orange" /></div>
         </div>
       </form>
@@ -148,7 +148,7 @@ class App extends Component {
 
         <div className="subscribe-form__bottom">
 
-        <input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0" />
+          <input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0" />
           <label htmlFor="mce-group[2585]-2585-0">I want to volunteer!</label>
 
           <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button yellow-on-orange">Subscribe</button>
@@ -206,14 +206,14 @@ class App extends Component {
         <footer className="footer">
           <div className="footer-social">
             <nav className="content footer-social__content">
-              <a className="footer-social-anchor" href="//facebook.com/stoppoliceviolencenyc" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
-              <a className="footer-social-anchor" href="//instagram.com/nyc_ecrb" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram" aria-hidden="true"></i><span>instagram</span></a>
+              <a className="footer-social-anchor" href="//www.facebook.com/HoldPoliceAccountableNYC" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
+              <a className="footer-social-anchor" href="//instagram.com/holdpoliceaccountable" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram" aria-hidden="true"></i><span>instagram</span></a>
             </nav>
           </div>
 
           <div className="footer-bottom">
             <div className="content footer-bottom__content">
-              <a  className="logo" href="/">
+              <a className="logo" href="/">
                 <img src={logoBlue} alt="logo" />
               </a>
 
@@ -221,6 +221,8 @@ class App extends Component {
 
               <div className="column">
                 <a className="button yellow-on-blue" href="//google.com" target="_blank" rel="noopener noreferrer">Donate Now!</a>
+                <br />
+                <Link className="privacy-policy-link" to="/privacy-policy">Privacy Policy</Link>
               </div>
             </div>
           </div>
