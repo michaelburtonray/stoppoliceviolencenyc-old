@@ -11,6 +11,7 @@ import Faq from "./Faq";
 import Contact from "./Contact";
 import PrivacyPolicy from "./PrivacyPolicy";
 import Resources from "./Resources";
+import Endorsers from "./Endorsers";
 
 ReactDOM.render(
   <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route path="/contact" component={Contact} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/resources" component={Resources} />
+      <Route path="/endorse" component={Endorsers} />
     </Route>
   </Router>,
   document.getElementById("root")

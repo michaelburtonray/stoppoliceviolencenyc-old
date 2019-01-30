@@ -63,6 +63,11 @@ class ContentfulClient {
     const content_type = "contactPage";
     return this.client.getEntries({ content_type });
   }
+
+  getEndorsersPage() {
+    const content_type = "endorsersPage";
+    return this.client.getEntries({ content_type });
+  }
 }
 
 export default ContentfulClient;
