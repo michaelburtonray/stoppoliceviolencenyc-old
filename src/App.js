@@ -293,13 +293,6 @@ class App extends Component {
             />
 
             <nav className="mainnav">
-              <IndexLink
-                className="mainnav-anchor"
-                activeStyle={this.ACTIVE}
-                to="/"
-              >
-                Why An Elected Board?
-              </IndexLink>
               <span>
                 <Link
                   className="mainnav-anchor"
@@ -323,6 +316,14 @@ class App extends Component {
               >
                 The Legislation
               </Link>
+              <Link
+                className="mainnav-anchor"
+                activeStyle={this.ACTIVE}
+                to="/endorse"
+              >
+                Endorsers
+              </Link>
+
               <Link
                 className="mainnav-anchor"
                 activeStyle={this.ACTIVE}
