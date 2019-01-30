@@ -1,111 +1,113 @@
 /* global FB */
-import React, { Component } from 'react';
-import ContentfulClient from './ContentfulClient';
-import EcrbSlideshow from './EcrbSlideshow'
-import './join.css';
-import Event from './Event';
-import Section from './Section';
-import { markdown } from 'markdown';
+import React, { Component } from "react";
+import ContentfulClient from "./ContentfulClient";
+import EcrbSlideshow from "./EcrbSlideshow";
+import "./join.css";
+import Section from "./Section";
+import { markdown } from "markdown";
 
 class Join extends Component {
   constructor() {
     super();
 
     this.state = {
-      title: '',
+      title: "",
       sliderSlides: [],
-      subtitle: '',
-      intro: '',
+      subtitle: "",
+      intro: "",
       sections: [],
-      events: []
-    }
+      events: [],
+    };
   }
 
   componentDidMount() {
     const contentfulClient = new ContentfulClient();
 
-    contentfulClient.getJoin()
+    contentfulClient
+      .getJoin()
       .then(response => {
-        return response.items[0]
-      }).then(data => {
+        return response.items[0];
+      })
+      .then(data => {
         const { title, subtitle } = data.fields;
         const intro = markdown.toHTML(data.fields.intro);
 
         const sections = data.fields.sections.map(section => {
           const heading = section.fields.heading;
           const content = markdown.toHTML(section.fields.content);
-          return { heading, content }
+          return { heading, content };
         });
 
         const sliderSlides = data.fields.sliderSlides;
 
-        this.setState({ title, subtitle, intro, sections, sliderSlides })
+        this.setState({ title, subtitle, intro, sections, sliderSlides });
       });
 
-    contentfulClient.getJoinPageSlides()
-      .then(response => {
-        const data = response.items[0];
-        const sliderSlides = data.fields.slides;
-        this.setState({ sliderSlides })
-      });
+    contentfulClient.getJoinPageSlides().then(response => {
+      const data = response.items[0];
+      const sliderSlides = data.fields.slides;
+      this.setState({ sliderSlides });
+    });
 
     window.fbAsyncInit = () => {
       FB.init({
-        appId: '1822632521322919',
+        appId: "1822632521322919",
         xfbml: true,
-        version: 'v2.8'
+        version: "v2.8",
       });
       FB.AppEvents.logPageView();
 
-      const date_now = Date.now()
+      const date_now = Date.now();
 
       FB.api(
-        '/HoldPoliceAccountableNYC/events',
-        'GET',
+        "/HoldPoliceAccountableNYC/events",
+        "GET",
         {
-          access_token: '1822632521322919|b17e6b343ca31c330d1912613961f381'
+          access_token: "1822632521322919|b17e6b343ca31c330d1912613961f381",
         },
-        (response) => {
-          const events = response.data.filter(event => new Date(event.start_time) > date_now);
-          this.setState({ events })
+        response => {
+          const events = response.data.filter(
+            event => new Date(event.start_time) > date_now
+          );
+          this.setState({ events });
         }
       );
-
-
     };
 
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) { return; }
-      js = d.createElement(s); js.id = id;
+    (function(d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
       js.src = "//connect.facebook.net/en_US/sdk.js";
       // js.src = "//connect.facebook.net/en_US/sdk/debug.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    })(document, "script", "facebook-jssdk");
   }
 
   render() {
-    const firstSection = this.state.sections[0];
     return (
       <div className="join-page">
-        <EcrbSlideshow slicksettings={this.slicksettings} sliderSlides={this.state.sliderSlides} />
-
+        <EcrbSlideshow
+          slicksettings={this.slicksettings}
+          sliderSlides={this.state.sliderSlides}
+        />
 
         <h1>{this.state.title}</h1>
         <h3>{this.state.subtitle}</h3>
-        <div className="join-page__intro" dangerouslySetInnerHTML={{ __html: this.state.intro }}></div>
+        <div
+          className="join-page__intro"
+          dangerouslySetInnerHTML={{ __html: this.state.intro }}
+        />
 
-        <Section {...firstSection}>
-          <section className="events">
-            <h2>Upcoming Events</h2>
-            {this.state.events.slice(0, 3).map((event, idx) => <Event event={event} key={idx} />)}
-            <a className="events__view-more" href="https://www.facebook.com/pg/HoldPoliceAccountableNYC/events/" target="_blank" rel="noopener noreferrer">View more&hellip;</a>
-          </section>
-        </Section>
-
-        {this.state.sections.slice(1).map((section, idx) => <Section {...section} key={idx} />)}
+        {this.state.sections.map((section, idx) => (
+          <Section {...section} key={idx} />
+        ))}
       </div>
-    )
+    );
   }
 }
 

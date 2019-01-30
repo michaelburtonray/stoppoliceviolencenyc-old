@@ -312,6 +312,13 @@ class App extends Component {
               <Link
                 className="mainnav-anchor"
                 activeStyle={this.ACTIVE}
+                to="/petition"
+              >
+                Sign the Petition
+              </Link>
+              <Link
+                className="mainnav-anchor"
+                activeStyle={this.ACTIVE}
                 to="/legislation"
               >
                 The Legislation
