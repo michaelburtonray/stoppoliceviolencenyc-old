@@ -60,7 +60,7 @@ class ContentfulClient {
   }
 
   getResourcesPage() {
-    const content_type = "contactPage";
+    const content_type = "resourcesPage";
     return this.client.getEntries({ content_type });
   }
 
