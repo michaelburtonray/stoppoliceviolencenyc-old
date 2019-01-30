@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
-import { Link, IndexLink } from 'react-router';
-import ContentfulClient from './ContentfulClient';
+import React, { Component } from "react";
+import { Link, IndexLink } from "react-router";
+import ContentfulClient from "./ContentfulClient";
 
-import logo from './logo.svg';
-import logoBlue from './logo-blue.svg';
+import logo from "./logo.svg";
+import logoBlue from "./logo-blue.svg";
 
-import './button.css';
-import './elements.css';
-import './App.css';
+import "./button.css";
+import "./elements.css";
+import "./App.css";
 
 class App extends Component {
   constructor() {
     super();
 
-    this.ACTIVE = { color: 'white' }
+    this.ACTIVE = { color: "white" };
 
     this.state = {
       mobileNavIsActive: false,
-      joinSections: []
-    }
+      joinSections: [],
+    };
 
     this.toggleActiveMobileNav = this.toggleActiveMobileNav.bind(this);
     this.toggleCloseMobileNav = this.toggleCloseMobileNav.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', event => {
+    window.addEventListener("scroll", event => {
       this.setState({ mobileNavIsActive: false });
     });
 
@@ -33,23 +33,24 @@ class App extends Component {
   }
 
   populateJoinSub() {
-
     const contentfulClient = new ContentfulClient();
 
-    contentfulClient.getJoin()
+    contentfulClient
+      .getJoin()
       .then(response => {
-        return response.items[0]
-      }).then(data => {
+        return response.items[0];
+      })
+      .then(data => {
         const joinSections = data.fields.sections.map(section => {
           const heading = section.fields.heading;
-          const href = `/join#${section.fields.heading.replace(/\s+/g, '-').toLowerCase()}`;
+          const href = `/join#${section.fields.heading
+            .replace(/\s+/g, "-")
+            .toLowerCase()}`;
           const id = section.sys.id;
-          return { heading, href, id }
+          return { heading, href, id };
         });
-        this.setState({ joinSections })
+        this.setState({ joinSections });
       });
-
-
   }
 
   toggleActiveMobileNav(event) {
@@ -61,24 +62,43 @@ class App extends Component {
   }
 
   getMobileNavClassList() {
-    return ['mainnav--mobile', this.state.mobileNavIsActive ? 'mainnav--active' : ''].join(' ')
+    return [
+      "mainnav--mobile",
+      this.state.mobileNavIsActive ? "mainnav--active" : "",
+    ].join(" ");
   }
 
   getAppClassList() {
-    return ["App", this.state.mobileNavIsActive ? 'mainnav--active' : ''].join(' ')
+    return ["App", this.state.mobileNavIsActive ? "mainnav--active" : ""].join(
+      " "
+    );
   }
 
   mailchimpForm() {
     return (
       <div id="mc_embed_signup">
-        <form action="//stoppoliceviolenceNYC.us15.list-manage.com/subscribe/post?u=88d16b0689b23efe0b7c90fe2&amp;id=7ded0f69b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+        <form
+          action="//stoppoliceviolenceNYC.us15.list-manage.com/subscribe/post?u=88d16b0689b23efe0b7c90fe2&amp;id=7ded0f69b4"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          target="_blank"
+        >
           <div id="mc_embed_signup_scroll">
             <h2>Subscribe to our mailing list</h2>
-            <div className="indicates-required"><span className="asterisk">*</span> indicates required</div>
+            <div className="indicates-required">
+              <span className="asterisk">*</span> indicates required
+            </div>
             <div className="mc-field-group">
-              <label htmlFor="mce-EMAIL">Email Address  <span className="asterisk">*</span>
+              <label htmlFor="mce-EMAIL">
+                Email Address <span className="asterisk">*</span>
               </label>
-              <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" />
+              <input
+                type="email"
+                name="EMAIL"
+                className="required email"
+                id="mce-EMAIL"
+              />
             </div>
             <div className="mc-field-group">
               <label htmlFor="mce-FNAME">First Name </label>
@@ -91,51 +111,129 @@ class App extends Component {
             <div className="mc-field-group input-group">
               <strong>Do you want to volunteer? </strong>
               <ul>
-                <li><input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0" /><label htmlFor="mce-group[2585]-2585-0">I want to volunteer!</label></li>
+                <li>
+                  <input
+                    type="checkbox"
+                    value="1"
+                    name="group[2585][1]"
+                    id="mce-group[2585]-2585-0"
+                  />
+                  <label htmlFor="mce-group[2585]-2585-0">
+                    I want to volunteer!
+                  </label>
+                </li>
               </ul>
             </div>
             <div id="mce-responses" className="clear">
-              <div className="response" id="mce-error-response"></div>
-              <div className="response" id="mce-success-response"></div>
+              <div className="response" id="mce-error-response" />
+              <div className="response" id="mce-success-response" />
             </div>
-            <input type="text" name="b_88d16b0689b23efe0b7c90fe2_7ded0f69b4" tabIndex="-1" />
-            <div className="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" /></div>
+            <input
+              type="text"
+              name="b_88d16b0689b23efe0b7c90fe2_7ded0f69b4"
+              tabIndex="-1"
+            />
+            <div className="clear">
+              <input
+                type="submit"
+                value="Subscribe"
+                name="subscribe"
+                id="mc-embedded-subscribe"
+                className="button"
+              />
+            </div>
           </div>
         </form>
       </div>
-    )
+    );
   }
 
   formDefault() {
     return (
-      <form className="subscribe-form" action="//stoppoliceviolenceNYC.us15.list-manage.com/subscribe/post?u=88d16b0689b23efe0b7c90fe2&amp;id=7ded0f69b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <form
+        className="subscribe-form"
+        action="//stoppoliceviolenceNYC.us15.list-manage.com/subscribe/post?u=88d16b0689b23efe0b7c90fe2&amp;id=7ded0f69b4"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        target="_blank"
+        novalidate
+      >
         <div id="mc_embed_signup_scroll">
-          <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+          <div class="indicates-required">
+            <span class="asterisk">*</span> indicates required
+          </div>
           <div class="mc-field-group">
-            <label htmlFor="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
-            <input type="email" name="EMAIL" class="required email" placeholder="Email Address" id="mce-EMAIL" />
+            <label htmlFor="mce-EMAIL">
+              Email Address <span class="asterisk">*</span>
+            </label>
+            <input
+              type="email"
+              name="EMAIL"
+              class="required email"
+              placeholder="Email Address"
+              id="mce-EMAIL"
+            />
           </div>
           <div class="mc-field-group input-group">
             <strong>Do you want to volunteer? </strong>
             <ul>
-              <li><input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0" /><label htmlFor="mce-group[2585]-2585-0">I want to volunteer!</label></li>
+              <li>
+                <input
+                  type="checkbox"
+                  value="1"
+                  name="group[2585][1]"
+                  id="mce-group[2585]-2585-0"
+                />
+                <label htmlFor="mce-group[2585]-2585-0">
+                  I want to volunteer!
+                </label>
+              </li>
             </ul>
           </div>
           <div id="mce-responses" class="clear">
-            <div class="response" id="mce-error-response" style={{ display: "none" }}></div>
-            <div class="response" id="mce-success-response" style={{ display: "none" }}></div>
+            <div
+              class="response"
+              id="mce-error-response"
+              style={{ display: "none" }}
+            />
+            <div
+              class="response"
+              id="mce-success-response"
+              style={{ display: "none" }}
+            />
           </div>
-          <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true"><input type="text" name="b_88d16b0689b23efe0b7c90fe2_7ded0f69b4" tabindex="-1" /></div>
-          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button yellow-on-orange" /></div>
+          <div
+            style={{ position: "absolute", left: "-5000px" }}
+            aria-hidden="true"
+          >
+            <input
+              type="text"
+              name="b_88d16b0689b23efe0b7c90fe2_7ded0f69b4"
+              tabindex="-1"
+            />
+          </div>
+          <div class="clear">
+            <input
+              type="submit"
+              value="Subscribe"
+              name="subscribe"
+              id="mc-embedded-subscribe"
+              class="button yellow-on-orange"
+            />
+          </div>
         </div>
       </form>
-    )
+    );
   }
 
   formSubscribe() {
     return (
-      <form className="subscribe-form" action="//stoppoliceviolenceNYC.us15.list-manage.com/subscribe/post" method="post">
-
+      <form
+        className="subscribe-form"
+        action="//stoppoliceviolenceNYC.us15.list-manage.com/subscribe/post"
+        method="post"
+      >
         <input type="hidden" name="u" value="88d16b0689b23efe0b7c90fe2" />
         <input type="hidden" name="id" value="7ded0f69b4" />
 
@@ -143,71 +241,187 @@ class App extends Component {
 
         <div className="subscribe-form__top">
           <label htmlFor="mce-EMAIL">Sign up for campaign updates</label>
-          <input type="email" name="EMAIL" className="required email" placeholder="Email Address" id="mce-EMAIL" />
+          <input
+            type="email"
+            name="EMAIL"
+            className="required email"
+            placeholder="Email Address"
+            id="mce-EMAIL"
+          />
         </div>
 
         <div className="subscribe-form__bottom">
-
-          <input type="checkbox" value="1" name="group[2585][1]" id="mce-group[2585]-2585-0" />
+          <input
+            type="checkbox"
+            value="1"
+            name="group[2585][1]"
+            id="mce-group[2585]-2585-0"
+          />
           <label htmlFor="mce-group[2585]-2585-0">I want to volunteer!</label>
 
-          <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button yellow-on-orange">Subscribe</button>
+          <button
+            type="submit"
+            value="Subscribe"
+            name="subscribe"
+            id="mc-embedded-subscribe"
+            className="button yellow-on-orange"
+          >
+            Subscribe
+          </button>
         </div>
-
       </form>
-    )
+    );
   }
 
   render() {
     return (
       <div className={this.getAppClassList()}>
-
         <header className="header">
           <div className="content header__content">
-
-            <IndexLink className="logo" to="/" onClick={this.toggleCloseMobileNav}>
+            <IndexLink
+              className="logo"
+              to="/"
+              onClick={this.toggleCloseMobileNav}
+            >
               <img src={logo} alt="logo" />
             </IndexLink>
 
-            <i className="fa fa-bars header__bars" aria-hidden="true" onClick={this.toggleActiveMobileNav}></i>
+            <i
+              className="fa fa-bars header__bars"
+              aria-hidden="true"
+              onClick={this.toggleActiveMobileNav}
+            />
 
             <nav className="mainnav">
-              <IndexLink className="mainnav-anchor" activeStyle={this.ACTIVE} to="/">Why An Elected Board?</IndexLink>
+              <IndexLink
+                className="mainnav-anchor"
+                activeStyle={this.ACTIVE}
+                to="/"
+              >
+                Why An Elected Board?
+              </IndexLink>
               <span>
-                <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
+                <Link
+                  className="mainnav-anchor"
+                  activeStyle={this.ACTIVE}
+                  to="/join"
+                >
+                  Join the Campaign
+                </Link>
                 <div className="mainnav__subnavigation">
-                  {this.state.joinSections.map(joinSection => <a href={joinSection.href} key={joinSection.id}>{joinSection.heading}</a>)}
+                  {this.state.joinSections.map(joinSection => (
+                    <a href={joinSection.href} key={joinSection.id}>
+                      {joinSection.heading}
+                    </a>
+                  ))}
                 </div>
               </span>
-              <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
-              <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
-              <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
-              <a className="mainnav-anchor button yellow-on-orange" href="//gofundme.com/ecrbnyc" target="_blank" rel="noopener noreferrer">Donate Now!</a>
+              <Link
+                className="mainnav-anchor"
+                activeStyle={this.ACTIVE}
+                to="/legislation"
+              >
+                The Legislation
+              </Link>
+              <Link
+                className="mainnav-anchor"
+                activeStyle={this.ACTIVE}
+                to="/faq"
+              >
+                FAQ
+              </Link>
+              <Link
+                className="mainnav-anchor"
+                activeStyle={this.ACTIVE}
+                to="/contact"
+              >
+                Contact
+              </Link>
+              <Link
+                className="mainnav-anchor"
+                activeStyle={this.ACTIVE}
+                to="/resources"
+              >
+                Resources
+              </Link>
+              <a
+                className="mainnav-anchor button yellow-on-orange"
+                href="//gofundme.com/ecrbnyc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Donate Now!
+              </a>
             </nav>
-
           </div>
         </header>
 
-        <nav className={this.getMobileNavClassList()} onClick={this.toggleActiveMobileNav}>
-          <IndexLink className="mainnav-anchor" activeStyle={this.ACTIVE} to="/">Why An Elected Board?</IndexLink>
-          <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">Join the Campaign</Link>
-          <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/legislation">The Legislation</Link>
-          <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">FAQ</Link>
-          <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/contact">Contact</Link>
-          <a className="mainnav-anchor button yellow-on-orange" href="//gofundme.com/ecrbnyc" target="_blank" rel="noopener noreferrer">Donate Now!</a>
+        <nav
+          className={this.getMobileNavClassList()}
+          onClick={this.toggleActiveMobileNav}
+        >
+          <IndexLink
+            className="mainnav-anchor"
+            activeStyle={this.ACTIVE}
+            to="/"
+          >
+            Why An Elected Board?
+          </IndexLink>
+          <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">
+            Join the Campaign
+          </Link>
+          <Link
+            className="mainnav-anchor"
+            activeStyle={this.ACTIVE}
+            to="/legislation"
+          >
+            The Legislation
+          </Link>
+          <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">
+            FAQ
+          </Link>
+          <Link
+            className="mainnav-anchor"
+            activeStyle={this.ACTIVE}
+            to="/contact"
+          >
+            Contact
+          </Link>
+          <a
+            className="mainnav-anchor button yellow-on-orange"
+            href="//gofundme.com/ecrbnyc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Donate Now!
+          </a>
         </nav>
 
         <div className="wrapper">
-          <div className="content">
-            {this.props.children}
-          </div>
+          <div className="content">{this.props.children}</div>
         </div>
 
         <footer className="footer">
           <div className="footer-social">
             <nav className="content footer-social__content">
-              <a className="footer-social-anchor" href="//www.facebook.com/HoldPoliceAccountableNYC" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
-              <a className="footer-social-anchor" href="//instagram.com/holdpoliceaccountable" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram" aria-hidden="true"></i><span>instagram</span></a>
+              <a
+                className="footer-social-anchor"
+                href="//www.facebook.com/HoldPoliceAccountableNYC"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fa fa-facebook" aria-hidden="true" />
+                <span>facebook</span>
+              </a>
+              <a
+                className="footer-social-anchor"
+                href="//instagram.com/holdpoliceaccountable"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fa fa-instagram" aria-hidden="true" />
+                <span>instagram</span>
+              </a>
             </nav>
           </div>
 
@@ -220,16 +434,24 @@ class App extends Component {
               {this.formSubscribe()}
 
               <div className="column">
-                <a className="button yellow-on-blue" href="//google.com" target="_blank" rel="noopener noreferrer">Donate Now!</a>
+                <a
+                  className="button yellow-on-blue"
+                  href="//google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Donate Now!
+                </a>
                 <br />
-                <Link className="privacy-policy-link" to="/privacy-policy">Privacy Policy</Link>
+                <Link className="privacy-policy-link" to="/privacy-policy">
+                  Privacy Policy
+                </Link>
               </div>
             </div>
           </div>
         </footer>
-
       </div>
-    )
+    );
   }
 }
 

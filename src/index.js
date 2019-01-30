@@ -1,17 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Router, Route, IndexRoute, browserHistory } from "react-router";
 
-import './index.css';
-import App from './App';
-import Home from './Home.js';
-import Join from './Join.js';
-import Legislation from './Legislation';
-import Faq from './Faq';
-import Contact from './Contact';
-import PrivacyPolicy from './PrivacyPolicy';
+import "./index.css";
+import App from "./App";
+import Home from "./Home.js";
+import Join from "./Join.js";
+import Legislation from "./Legislation";
+import Faq from "./Faq";
+import Contact from "./Contact";
+import PrivacyPolicy from "./PrivacyPolicy";
+import Resources from "./Resources";
 
-ReactDOM.render((
+ReactDOM.render(
   <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
@@ -20,6 +21,8 @@ ReactDOM.render((
       <Route path="/faq" component={Faq} />
       <Route path="/contact" component={Contact} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/resources" component={Resources} />
     </Route>
-  </Router>
-), document.getElementById('root'))
+  </Router>,
+  document.getElementById("root")
+);
