@@ -1,50 +1,49 @@
 .button {
-    border-style: solid; 
-    border-width: 1px;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-block;
-    font: normal 13px/1 'Montserrat', sans-serif;
-    line-height: normal;
-    min-width: 10.539em;
-    padding: 0.50em 1.25em;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    white-space: nowrap;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font: normal 13px/1 "Montserrat", sans-serif;
+  line-height: normal;
+  min-width: 10.539em;
+  padding: 0.5em 1.25em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .button.yellow-on-blue {
-    background-color: #052531;
-    border-color: #F8ECE4;
-    color: #F8ECE4;
+  background-color: #052531;
+  border-color: #f8ece4;
+  color: #f8ece4;
 }
 
 .button.yellow-on-blue:hover {
-    border-color: white;
-    color: white;
+  border-color: white;
+  color: white;
 }
 
 .button.green-on-orange {
-    background-color: #FD5F55;
-    border-color: #BDFFD9;
-    color: #BDFFD9;
+  background-color: #fd5f55;
+  border-color: #bdffd9;
+  color: #bdffd9;
 }
 
 .button.green-on-orange:hover {
-    border-color: white;
-    color: white;
+  border-color: white;
+  color: white;
 }
 
 .button.yellow-on-orange {
-    background-color: #FD5F55;
-    border-color: #F8ECE4;
-    color: #F8ECE4;
+  background-color: #fd5f55;
+  border-color: #f8ece4;
+  color: #f8ece4;
 }
 
 .button.yellow-on-orange:hover {
-    border-color: white;
-    color: white;
+  border-color: white;
+  color: white;
 }
 
 .button.mainnav-anchor {
