@@ -134,11 +134,8 @@
 @media (min-width: 1024px) {
   .mainnav {
     align-items: center;
-    display: grid;
-    flex-grow: 1;
+    display: flex;
     font: 700 13px/1 "Montserrat", sans-serif;
-    grid-template-columns: repeat(9, auto);
-    justify-content: space-around;
   }
 }
 .mainnav span {

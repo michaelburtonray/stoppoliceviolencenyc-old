@@ -368,15 +368,28 @@ class App extends Component {
           className={this.getMobileNavClassList()}
           onClick={this.toggleActiveMobileNav}
         >
-          <IndexLink
+          <span>
+            <Link
+              className="mainnav-anchor"
+              activeStyle={this.ACTIVE}
+              to="/join"
+            >
+              Join the Campaign
+            </Link>
+            <div className="mainnav__subnavigation">
+              {this.state.joinSections.map(joinSection => (
+                <a href={joinSection.href} key={joinSection.id}>
+                  {joinSection.heading}
+                </a>
+              ))}
+            </div>
+          </span>
+          <Link
             className="mainnav-anchor"
             activeStyle={this.ACTIVE}
-            to="/"
+            to="/petition"
           >
-            Why An Elected Board?
-          </IndexLink>
-          <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/join">
-            Join the Campaign
+            Sign the Petition
           </Link>
           <Link
             className="mainnav-anchor"
@@ -385,6 +398,14 @@ class App extends Component {
           >
             The Legislation
           </Link>
+          <Link
+            className="mainnav-anchor"
+            activeStyle={this.ACTIVE}
+            to="/endorse"
+          >
+            Endorsers
+          </Link>
+
           <Link className="mainnav-anchor" activeStyle={this.ACTIVE} to="/faq">
             FAQ
           </Link>
@@ -394,6 +415,13 @@ class App extends Component {
             to="/contact"
           >
             Contact
+          </Link>
+          <Link
+            className="mainnav-anchor"
+            activeStyle={this.ACTIVE}
+            to="/resources"
+          >
+            Resources
           </Link>
           <a
             className="mainnav-anchor button yellow-on-orange"
