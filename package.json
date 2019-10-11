@@ -7,10 +7,13 @@
   },
   "dependencies": {
     "contentful": "^3.8.1",
+    "core-util-is": "^1.0.2",
     "dotenv": "^4.0.0",
     "fb": "^2.0.0",
+    "heroku": "^7.33.1",
     "markdown": "^0.5.0",
     "moment": "^2.18.1",
+    "node-static": "^0.7.11",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2",
