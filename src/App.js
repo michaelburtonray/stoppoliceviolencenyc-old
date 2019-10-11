@@ -458,15 +458,6 @@ class App extends Component {
                 <i className="fa fa-instagram" aria-hidden="true" />
                 <span>instagram</span>
               </a>
-			  <a
-                className="footer-social-anchor"
-                href="//twitter.com/ECRBforNYC"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fa fa-twitter" aria-hidden="true" />
-                <span>instagram</span>
-              </a>
             </nav>
           </div>
 
