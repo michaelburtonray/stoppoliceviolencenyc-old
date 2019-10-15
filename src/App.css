@@ -29,6 +29,11 @@
   max-width: 1280px;
   padding: 0 16px;
 }
+
+.content p a{
+	color:blue !important;
+}
+
 @media (min-width: 736px) {
   .content {
     padding: 0 40px;
